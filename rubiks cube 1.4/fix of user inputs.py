@@ -2,13 +2,6 @@ from vpython import *
 from tkinter import *
 import numpy as np
 
-up_piece = pyramid(pos=vector(1, 1.5, 1), size=vector(0.5, 1, 1), axis=vector(0, -1, 0), visible=False)
-left_piece = pyramid(pos=vector(0.5, 1, 1), size=vector(0.5, 1, 1), axis=vector(1, 0, 0), visible=False)
-back_piece = pyramid(pos=vector(1, 1, 0.5), size=vector(0.5, 1, 1), axis=vector(0, 0, 1), visible=False)
-right_piece = pyramid(pos=vector(1.5, 1, 1), size=vector(0.5, 1, 1), axis=vector(-1, 0, 0), visible=False)
-front_piece = pyramid(pos=vector(1, 1, 1.5), size=vector(0.5, 1, 1), axis=vector(0, 0, -1), visible=False)
-down_piece = pyramid(pos=vector(1, 0.5, 1), size=vector(0.5, 1, 1), axis=vector(0, 1, 0), visible=False)
-
 up_1 = pyramid(pos=vector(1, 1.5, 1), size=vector(0.5, 1, 1), axis=vector(0, -1, 0), visible=False)
 up_2 = pyramid(pos=vector(1, 1.5, 1), size=vector(0.5, 1, 1), axis=vector(0, -1, 0), visible=False)
 up_3 = pyramid(pos=vector(1, 1.5, 1), size=vector(0.5, 1, 1), axis=vector(0, -1, 0), visible=False)
@@ -19,6 +12,55 @@ up_7 = pyramid(pos=vector(1, 1.5, 1), size=vector(0.5, 1, 1), axis=vector(0, -1,
 up_8 = pyramid(pos=vector(1, 1.5, 1), size=vector(0.5, 1, 1), axis=vector(0, -1, 0), visible=False)
 up_9 = pyramid(pos=vector(1, 1.5, 1), size=vector(0.5, 1, 1), axis=vector(0, -1, 0), visible=False)
 
+left_1 = pyramid(pos=vector(0.5, 1, 1), size=vector(0.5, 1, 1), axis=vector(1, 0, 0), visible=False)
+left_2 = pyramid(pos=vector(0.5, 1, 1), size=vector(0.5, 1, 1), axis=vector(1, 0, 0), visible=False)
+left_3 = pyramid(pos=vector(0.5, 1, 1), size=vector(0.5, 1, 1), axis=vector(1, 0, 0), visible=False)
+left_4 = pyramid(pos=vector(0.5, 1, 1), size=vector(0.5, 1, 1), axis=vector(1, 0, 0), visible=False)
+left_5 = pyramid(pos=vector(0.5, 1, 1), size=vector(0.5, 1, 1), axis=vector(1, 0, 0), visible=False)
+left_6 = pyramid(pos=vector(0.5, 1, 1), size=vector(0.5, 1, 1), axis=vector(1, 0, 0), visible=False)
+left_7 = pyramid(pos=vector(0.5, 1, 1), size=vector(0.5, 1, 1), axis=vector(1, 0, 0), visible=False)
+left_8 = pyramid(pos=vector(0.5, 1, 1), size=vector(0.5, 1, 1), axis=vector(1, 0, 0), visible=False)
+left_9 = pyramid(pos=vector(0.5, 1, 1), size=vector(0.5, 1, 1), axis=vector(1, 0, 0), visible=False)
+
+back_1 = pyramid(pos=vector(1, 1, 0.5), size=vector(0.5, 1, 1), axis=vector(0, 0, 1), visible=False)
+back_2 = pyramid(pos=vector(1, 1, 0.5), size=vector(0.5, 1, 1), axis=vector(0, 0, 1), visible=False)
+back_3 = pyramid(pos=vector(1, 1, 0.5), size=vector(0.5, 1, 1), axis=vector(0, 0, 1), visible=False)
+back_4 = pyramid(pos=vector(1, 1, 0.5), size=vector(0.5, 1, 1), axis=vector(0, 0, 1), visible=False)
+back_5 = pyramid(pos=vector(1, 1, 0.5), size=vector(0.5, 1, 1), axis=vector(0, 0, 1), visible=False)
+back_6 = pyramid(pos=vector(1, 1, 0.5), size=vector(0.5, 1, 1), axis=vector(0, 0, 1), visible=False)
+back_7 = pyramid(pos=vector(1, 1, 0.5), size=vector(0.5, 1, 1), axis=vector(0, 0, 1), visible=False)
+back_8 = pyramid(pos=vector(1, 1, 0.5), size=vector(0.5, 1, 1), axis=vector(0, 0, 1), visible=False)
+back_9 = pyramid(pos=vector(1, 1, 0.5), size=vector(0.5, 1, 1), axis=vector(0, 0, 1), visible=False)
+
+right_1 = pyramid(pos=vector(1.5, 1, 1), size=vector(0.5, 1, 1), axis=vector(-1, 0, 0), visible=False)
+right_2 = pyramid(pos=vector(1.5, 1, 1), size=vector(0.5, 1, 1), axis=vector(-1, 0, 0), visible=False)
+right_3 = pyramid(pos=vector(1.5, 1, 1), size=vector(0.5, 1, 1), axis=vector(-1, 0, 0), visible=False)
+right_4 = pyramid(pos=vector(1.5, 1, 1), size=vector(0.5, 1, 1), axis=vector(-1, 0, 0), visible=False)
+right_5 = pyramid(pos=vector(1.5, 1, 1), size=vector(0.5, 1, 1), axis=vector(-1, 0, 0), visible=False)
+right_6 = pyramid(pos=vector(1.5, 1, 1), size=vector(0.5, 1, 1), axis=vector(-1, 0, 0), visible=False)
+right_7 = pyramid(pos=vector(1.5, 1, 1), size=vector(0.5, 1, 1), axis=vector(-1, 0, 0), visible=False)
+right_8 = pyramid(pos=vector(1.5, 1, 1), size=vector(0.5, 1, 1), axis=vector(-1, 0, 0), visible=False)
+right_9 = pyramid(pos=vector(1.5, 1, 1), size=vector(0.5, 1, 1), axis=vector(-1, 0, 0), visible=False)
+
+front_1 = pyramid(pos=vector(1, 1, 1.5), size=vector(0.5, 1, 1), axis=vector(0, 0, -1), visible=False)
+front_2 = pyramid(pos=vector(1, 1, 1.5), size=vector(0.5, 1, 1), axis=vector(0, 0, -1), visible=False)
+front_3 = pyramid(pos=vector(1, 1, 1.5), size=vector(0.5, 1, 1), axis=vector(0, 0, -1), visible=False)
+front_4 = pyramid(pos=vector(1, 1, 1.5), size=vector(0.5, 1, 1), axis=vector(0, 0, -1), visible=False)
+front_5 = pyramid(pos=vector(1, 1, 1.5), size=vector(0.5, 1, 1), axis=vector(0, 0, -1), visible=False)
+front_6 = pyramid(pos=vector(1, 1, 1.5), size=vector(0.5, 1, 1), axis=vector(0, 0, -1), visible=False)
+front_7 = pyramid(pos=vector(1, 1, 1.5), size=vector(0.5, 1, 1), axis=vector(0, 0, -1), visible=False)
+front_8 = pyramid(pos=vector(1, 1, 1.5), size=vector(0.5, 1, 1), axis=vector(0, 0, -1), visible=False)
+front_9 = pyramid(pos=vector(1, 1, 1.5), size=vector(0.5, 1, 1), axis=vector(0, 0, -1), visible=False)
+
+down_1 = pyramid(pos=vector(1, 0.5, 1), size=vector(0.5, 1, 1), axis=vector(0, 1, 0), visible=False)
+down_2 = pyramid(pos=vector(1, 0.5, 1), size=vector(0.5, 1, 1), axis=vector(0, 1, 0), visible=False)
+down_3 = pyramid(pos=vector(1, 0.5, 1), size=vector(0.5, 1, 1), axis=vector(0, 1, 0), visible=False)
+down_4 = pyramid(pos=vector(1, 0.5, 1), size=vector(0.5, 1, 1), axis=vector(0, 1, 0), visible=False)
+down_5 = pyramid(pos=vector(1, 0.5, 1), size=vector(0.5, 1, 1), axis=vector(0, 1, 0), visible=False)
+down_6 = pyramid(pos=vector(1, 0.5, 1), size=vector(0.5, 1, 1), axis=vector(0, 1, 0), visible=False)
+down_7 = pyramid(pos=vector(1, 0.5, 1), size=vector(0.5, 1, 1), axis=vector(0, 1, 0), visible=False)
+down_8 = pyramid(pos=vector(1, 0.5, 1), size=vector(0.5, 1, 1), axis=vector(0, 1, 0), visible=False)
+down_9 = pyramid(pos=vector(1, 0.5, 1), size=vector(0.5, 1, 1), axis=vector(0, 1, 0), visible=False)
 
 
 class Interface(Tk):
@@ -137,12 +179,12 @@ class Interface(Tk):
 class cube:
     cube_data = [
         # edge pieces
-        [[up_7, front_piece, left_piece], np.array([-1, 1, 1])],
-        [[up_9, front_piece, right_piece], np.array([1, 1, 1])],
-        [[up_1, left_piece, back_piece], np.array([-1, 1, -1])],
-        [[up_3, back_piece, right_piece], np.array([1, 1, -1])],
-        [[down_piece, front_piece, left_piece], np.array([-1, -1, 1])],
-        [[down_piece, front_piece, right_piece], np.array([1, -1, 1])],
+        [[up_7, front_1, left_3], np.array([-1, 1, 1])],
+        [[up_9, front_3, right_1], np.array([1, 1, 1])],
+        [[up_1, left_1, back_3], np.array([-1, 1, -1])],
+        [[up_3, back_1, right_3], np.array([1, 1, -1])],
+        [[down_1, front_7, left_9], np.array([-1, -1, 1])],
+        [[down_3, front_9, right_7], np.array([1, -1, 1])],
         [[down_piece, back_piece, left_piece], np.array([-1, -1, -1])],
         [[down_piece, back_piece, right_piece], np.array([1, -1, -1])],
         # corner pieces
@@ -251,7 +293,7 @@ class cube:
 
 if __name__ == "__main__":
     root = Interface()
-    root.attributes('-alpha', 0.9)
+    root.attributes('-alpha', 0.6)
     root.mainloop()
 
 ###################################
