@@ -87,48 +87,6 @@ class Interface(Tk):
 
         self.options = ['White', 'Green', 'Orange', 'Blue', 'Red', 'Yellow']
         self.options_dict = {'White': up_piece, 'Green': left_piece, 'Orange': back_piece, 'Blue': right_piece, 'Red': front_piece, 'Yellow': down_piece}
-        # self.option_var_up = [
-        #     [StringVar(self), StringVar(self), StringVar(self)],
-        #     [StringVar(self), StringVar(self), StringVar(self)],
-        #     [StringVar(self), StringVar(self), StringVar(self)]
-        # ]
-        #
-        # self.option_var_left = [
-        #     [StringVar(self), StringVar(self), StringVar(self)],
-        #     [StringVar(self), StringVar(self), StringVar(self)],
-        #     [StringVar(self), StringVar(self), StringVar(self)]
-        # ]
-        #
-        # self.option_var_front = [
-        #     [StringVar(self), StringVar(self), StringVar(self)],
-        #     [StringVar(self), StringVar(self), StringVar(self)],
-        #     [StringVar(self), StringVar(self), StringVar(self)]
-        # ]
-        #
-        # self.option_var_right = [
-        #     [StringVar(self), StringVar(self), StringVar(self)],
-        #     [StringVar(self), StringVar(self), StringVar(self)],
-        #     [StringVar(self), StringVar(self), StringVar(self)]
-        # ]
-        #
-        # self.option_var_back = [
-        #     [StringVar(self), StringVar(self), StringVar(self)],
-        #     [StringVar(self), StringVar(self), StringVar(self)],
-        #     [StringVar(self), StringVar(self), StringVar(self)]
-        # ]
-        #
-        # self.option_var_down = [
-        #     [StringVar(self), StringVar(self), StringVar(self)],
-        #     [StringVar(self), StringVar(self), StringVar(self)],
-        #     [StringVar(self), StringVar(self), StringVar(self)]
-        # ]
-
-        self.create_options()
-
-
-        cube.__init__(cube)
-
-    def create_options(self):
         self.option_var_up = [
             [StringVar(self), StringVar(self), StringVar(self)],
             [StringVar(self), StringVar(self), StringVar(self)],
@@ -164,6 +122,13 @@ class Interface(Tk):
             [StringVar(self), StringVar(self), StringVar(self)],
             [StringVar(self), StringVar(self), StringVar(self)]
         ]
+
+        self.create_options()
+
+
+        cube.__init__(cube)
+
+    def create_options(self):
 
         U_1 = OptionMenu(self, self.option_var_up[0][0], self.option_var_up[0][0].set(self.options[0]), *self.options).grid(row=1, column=4)
         U_2 = OptionMenu(self, self.option_var_up[0][1], self.option_var_up[0][1].set(self.options[0]), *self.options).grid(row=1, column=5)
@@ -222,11 +187,26 @@ class Interface(Tk):
     def test_(self):
         # for x in range(4):
         #     cube.cube_data[x][0][0].color = color.red
+        count = 0
         for x in range(3):
             for y in range(3):
-                self.option_var_up[y][x] = up_layer[x+y].color
-                print(self.option_var_up[y][x])
-                print(up_layer[x+y].color)
+                colour_string = self.option_var_up[y][x].get()
+                colour = self.options_dict.get(colour_string)
+                if colour_string == 'White':
+                    up_layer[count].color = color.white
+                elif colour_string == 'Green':
+                    up_layer[count].color = color.green
+                elif colour_string == 'Orange':
+                    up_layer[count].color = color.orange
+                elif colour_string == 'Blue':
+                    up_layer[count].color = color.blue
+                elif colour_string == 'Red':
+                    up_layer[count].color = color.red
+                elif colour_string == 'Yellow':
+                    up_layer[count].color = color.yellow
+                print(self.option_var_up[y][x].get())
+                print(up_layer[count].color)
+                count = count+1
         cube.__init__(cube)
 
 
@@ -348,5 +328,5 @@ class cube:
 
 if __name__ == "__main__":
     root = Interface()
-    root.attributes('-alpha', 0.6)
+    root.attributes('-alpha', 0.9)
     root.mainloop()
