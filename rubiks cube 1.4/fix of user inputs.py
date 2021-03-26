@@ -82,7 +82,7 @@ class Interface(Tk):
         self.geometry('800x500')
         self.title('rubiks cube solver input screen')
 
-        self.test = Button(text='test', command=self.test_).grid(column=1, row=10)
+        self.test = Button(text='test', command=self.apply).grid(column=1, row=10)
         # self.start = Button(text='apply to cube', command=self.get_colour(0,0)).grid(column=7, row=2)
 
         self.options = ['White', 'Green', 'Orange', 'Blue', 'Red', 'Yellow']
@@ -91,7 +91,8 @@ class Interface(Tk):
             [StringVar(self), StringVar(self), StringVar(self)],
             [StringVar(self), StringVar(self), StringVar(self)],
             [StringVar(self), StringVar(self), StringVar(self)]
-        ]
+            ]
+
 
         self.option_var_left = [
             [StringVar(self), StringVar(self), StringVar(self)],
@@ -130,14 +131,14 @@ class Interface(Tk):
 
     def create_options(self):
 
-        U_1 = OptionMenu(self, self.option_var_up[0][0], self.option_var_up[0][0].set(self.options[0]), *self.options).grid(row=1, column=4)
-        U_2 = OptionMenu(self, self.option_var_up[0][1], self.option_var_up[0][1].set(self.options[0]), *self.options).grid(row=1, column=5)
-        U_3 = OptionMenu(self, self.option_var_up[0][2], self.option_var_up[0][2].set(self.options[0]), *self.options).grid(row=1, column=6)
-        U_4 = OptionMenu(self, self.option_var_up[1][0], self.option_var_up[1][0].set(self.options[0]), *self.options).grid(row=2, column=4)
-        U_6 = OptionMenu(self, self.option_var_up[1][2], self.option_var_up[1][2].set(self.options[0]), *self.options).grid(row=2, column=6)
-        U_7 = OptionMenu(self, self.option_var_up[2][0], self.option_var_up[2][0].set(self.options[0]), *self.options).grid(row=3, column=4)
-        U_8 = OptionMenu(self, self.option_var_up[2][1], self.option_var_up[2][1].set(self.options[0]), *self.options).grid(row=3, column=5)
-        U_9 = OptionMenu(self, self.option_var_up[2][2], self.option_var_up[2][2].set(self.options[0]), *self.options).grid(row=3, column=6)
+        U_1 = OptionMenu(self, self.option_var_up[0][0], self.option_var_up[0][0].set(self.options[0]),*self.options).grid(row=1, column=4)
+        U_2 = OptionMenu(self, self.option_var_up[0][1], self.option_var_up[0][1].set(self.options[0]),*self.options).grid(row=1, column=5)
+        U_3 = OptionMenu(self, self.option_var_up[0][2], self.option_var_up[0][2].set(self.options[0]),*self.options).grid(row=1, column=6)
+        U_4 = OptionMenu(self, self.option_var_up[1][0], self.option_var_up[1][0].set(self.options[0]),*self.options).grid(row=2, column=4)
+        U_6 = OptionMenu(self, self.option_var_up[1][2], self.option_var_up[1][2].set(self.options[0]),*self.options).grid(row=2, column=6)
+        U_7 = OptionMenu(self, self.option_var_up[2][0], self.option_var_up[2][0].set(self.options[0]),*self.options).grid(row=3, column=4)
+        U_8 = OptionMenu(self, self.option_var_up[2][1], self.option_var_up[2][1].set(self.options[0]),*self.options).grid(row=3, column=5)
+        U_9 = OptionMenu(self, self.option_var_up[2][2], self.option_var_up[2][2].set(self.options[0]),*self.options).grid(row=3, column=6)
 
         L_1 = OptionMenu(self, self.option_var_left[0][0], self.option_var_left[0][0].set(self.options[1]), *self.options).grid(row=4, column=1)
         L_2 = OptionMenu(self, self.option_var_left[0][1], self.option_var_left[0][1].set(self.options[1]), *self.options).grid(row=4, column=2)
@@ -184,31 +185,38 @@ class Interface(Tk):
         D_8 = OptionMenu(self, self.option_var_down[2][1], self.option_var_down[2][1].set(self.options[5]), *self.options).grid(row=9, column=5)
         D_9 = OptionMenu(self, self.option_var_down[2][2], self.option_var_down[2][2].set(self.options[5]), *self.options).grid(row=9, column=6)
 
-    def test_(self):
-        # for x in range(4):
-        #     cube.cube_data[x][0][0].color = color.red
+
+
+        layers = [self.option_var_up,self.option_var_left,self.option_var_back,self.option_var_right,self.option_var_front,self.option_var_down]
+        selected_layer = [up_layer,left_layer,back_layer,right_layer,front_layer,down_layer]
+
+    def apply(self):
+        selected_layer = [up_layer, left_layer, back_layer, right_layer, front_layer, down_layer]
+        layers = [self.option_var_up, self.option_var_left, self.option_var_back, self.option_var_right,
+                  self.option_var_front, self.option_var_down]
+        for x in range(6):
+            self.test_(selected_layer[x],layers[x])
+
+    def test_(self,layer, option):
         count = 0
         for x in range(3):
             for y in range(3):
-                colour_string = self.option_var_up[y][x].get()
+                colour_string = option[x][y].get()
                 colour = self.options_dict.get(colour_string)
                 if colour_string == 'White':
-                    up_layer[count].color = color.white
+                    layer[count].color = color.white
                 elif colour_string == 'Green':
-                    up_layer[count].color = color.green
+                    layer[count].color = color.green
                 elif colour_string == 'Orange':
-                    up_layer[count].color = color.orange
+                    layer[count].color = color.orange
                 elif colour_string == 'Blue':
-                    up_layer[count].color = color.blue
+                    layer[count].color = color.blue
                 elif colour_string == 'Red':
-                    up_layer[count].color = color.red
+                    layer[count].color = color.red
                 elif colour_string == 'Yellow':
-                    up_layer[count].color = color.yellow
-                print(self.option_var_up[y][x].get())
-                print(up_layer[count].color)
-                count = count+1
+                    layer[count].color = color.yellow
+                count = count + 1
         cube.__init__(cube)
-
 
 
 class cube:
